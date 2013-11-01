@@ -1,0 +1,4 @@
+name: htmlerator
+description: A sample Polymer application
+dependencies:
+  polymer: any
