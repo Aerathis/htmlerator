@@ -1,4 +1,5 @@
 name: htmlerator
 description: A sample Polymer application
 dependencies:
+  browser: any
   polymer: any
