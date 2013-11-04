@@ -1,9 +1,9 @@
 <html>
 <head>
 </head>
-<body>
+<body style='font-family:arial'>
     <img src='http://internal.blindferret.com/images/templates/email_template_campaignpause-header.png' width='650' height='129'>
-    <div>
+    <div style='position: relative; left: 30;'>
         <br>
         <br>
         Hey {firstname},
@@ -15,21 +15,23 @@
         <div style="border: 1px solid blue; width: 590">
             <img src='http://internal.blindferret.com/images/templates/email_template_campaignpause-bluebar.png'>
             <br>
-            {{Campaign name}}
-            <hr>
-            Campaigns
-            <ul>
-                {{fill in the bitches}}
-            </ul>
-            <div id='calendar' style=" position: relative; top: -69px; right: -400; ">
-                <img src='http://internal.blindferret.com/images/templates/email_template_campaignpause-calendar.png'>
-                <div id='month' style=" position: relative; top: -157; left: 56; color: white; ">
-                    {{month}}
-                </div>
-                <div id='day' style=" position: relative; left: 60; top: -100; ">
-                    {{day}}
-                </div>
-            </div>
+            <div style="position: relative; left: 10;">
+              {{Campaign name}}
+              <hr style="position: relative; left: -10;">
+              Campaigns
+              <ul>
+                  {{fill in the bitches}}
+              </ul>
+              <div id='calendar' style=" position: relative; top: -69px; right: -390; ">
+                  <img src='http://internal.blindferret.com/images/templates/email_template_campaignpause-calendar.png'>
+                  <div id='month' style=" position: relative; top: -157; left: 56; color: white; ">
+                      {{month}}
+                  </div>
+                  <div id='day' style=" position: relative; left: 60; top: -100; ">
+                      {{day}}
+                  </div>
+              </div>
+            </div>            
         </div>
         <br>
         <br>
@@ -40,6 +42,20 @@
         <br>
         <br>
         <b><i>The Blind Ferret Team</i></b>
+    </div>
+    <div align='center' style='background-color: lightgrey'>
+      If you have any questions, please contact your affiliate manager
+      <br>
+      <br>
+      <b>Blind Ferret Media</b>
+      <br>
+      <br>
+      <hr>      
+      <br>
+      If you prefer to not receive these emails, please visit the following link:
+      <br>
+      <br>
+      {unsub_email_url}
     </div>
 </body>
 </html>

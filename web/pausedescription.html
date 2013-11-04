@@ -2,7 +2,7 @@
   <template>
     <div>
       Pause Date:
-      <input type='date'>
+      <input type='date' value="{{pauseDate}}">
       <br>
       ASAP?
       <input type="checkbox">
@@ -20,12 +20,12 @@
       <ul id='campaign-items'>
         <template repeat="{{item in numRowsInt}}">
           Campaign Title:
-          <input id='camp-name-{{item}}' type='text' value="{{campaignTitle}}">
+          <input id='camp-name-{{item}}' class='title' type='text' value="{{campaignTitle}}">
           <br>
           Incent or No:
           <select id='camp-incent-{{item}}' class='incent'>
             <option value='Incent'>Incent</option>
-            <option value='Non'>Non-Incent</option>
+            <option value='Non-incent'>Non-Incent</option>
           </select>
           <br>
           Platform:
@@ -35,13 +35,16 @@
             <option value='Web'>Web</option>
           </select>
           <br>
+          Country:
+          <input id='camp-country-{{item}}' class='country' type='text'></input>
+          <br>
           <br>
         </template>
       </ul>        
       <button on-click="{{genCode}}">Generate HTML</button>    
     </div>
     <div>
-      {{resultCode}}
+      <textarea value="{{resultCode}}"></textarea>
     </div>
   </template>
   <script type='application/dart' src='pausedescription.dart'></script>
