@@ -1,0 +1,44 @@
+<polymer-element name='exclusive-offer-description'>
+  <template>
+    <div>
+      Email Intro:
+      <input type='text' value="{{introText}}">
+      <br>
+      Campaign Title: 
+      <input type='text' value="{{campaignTitle}}">
+      <br>
+      Upload Icon:
+      <input id='icon-file' type="file">
+      <button on-click="{{uploadIcon}}">Upload Icon</button>
+      <br>
+      Campaign Description:
+      <input type='text' value="{{campaignDescription}}">
+      <br>
+      Preview URL:
+      <input type='text' value="{{previewURL}}">
+      <br>
+      Countries:
+      <input type='text' value="{{countries}}">
+      <br>
+      Payout:
+      <input type='text' value="{{payoutText}}">
+      <select id='payout-select'>
+        <option value='CPI'>CPI</option>
+        <option value='CPA'>CPA</option>
+        <option value='CPC'>CPC</option>
+        <option value='CPM'>CPM</option>
+      </select>
+      <br>
+      Budget:
+      <input type='text' value={{budgetText}}">
+      <input id='budget-open-checkbox' type="checkbox">
+      <br>
+      <br>
+      <button on-click="{{genCode}}">Generate HTML</button>
+    </div>
+    <div>
+      <textarea value="{{resultCode}}"></textarea>
+    </div>
+  </template>
+  <script type='application/dart' src='exclusiveofferdescription.dart'></script>
+</polymer-element>
