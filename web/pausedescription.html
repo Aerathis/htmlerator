@@ -1,0 +1,51 @@
+<polymer-element name='pause-description'>
+  <template>
+    <div>
+      Pause Date:
+      <input type='date' value="{{pauseDate}}">
+      <br>
+      ASAP?
+      <input type="checkbox">
+      <br>
+      Campaign Title
+      <input type='text' value="{{campaignTitle}}">      
+      <br>
+      Campaigns
+      <select id='num-rows-select' value="{{numRows}}" on-change="{{updatedNum}}">
+        <template repeat="{{num in numbers}}">
+          <option value="{{num + 1}}">{{num + 1}}</option>
+        </template>  
+      </select>   
+      <br>
+      <ul id='campaign-items'>
+        <template repeat="{{item in numRowsInt}}">
+          Campaign Title:
+          <input id='camp-name-{{item}}' class='title' type='text' value="{{campaignTitle}}">
+          <br>
+          Incent or No:
+          <select id='camp-incent-{{item}}' class='incent'>
+            <option value='Incent'>Incent</option>
+            <option value='Non-incent'>Non-Incent</option>
+          </select>
+          <br>
+          Platform:
+          <select id='camp-plat-{{item}}' class='platform'>
+            <option value='iOS'>iOS</option>
+            <option value='Android'>Android</option>
+            <option value='Web'>Web</option>
+          </select>
+          <br>
+          Country:
+          <input id='camp-country-{{item}}' class='country' type='text'></input>
+          <br>
+          <br>
+        </template>
+      </ul>        
+      <button on-click="{{genCode}}">Generate HTML</button>    
+    </div>
+    <div>
+      <textarea value="{{resultCode}}"></textarea>
+    </div>
+  </template>
+  <script type='application/dart' src='pausedescription.dart'></script>
+</polymer-element>
