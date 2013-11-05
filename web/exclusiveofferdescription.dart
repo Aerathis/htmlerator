@@ -35,14 +35,19 @@ class ExclusiveOfferDescription extends PolymerElement {
   void uploadIcon() {
     if (iconFile.files.length == 1) {
       final file = iconFile.files[0];
-      final reader = new FileReader();
-      reader.onLoad = (e)  => _sendUpload(reader.result);      
+      final reader = new FileReader();             
+      reader.onLoad.listen((e) => _sendUpload(reader.result));
+      //reader.onLoad = (e)  => _sendUpload(reader.result);      
       reader.readAsDataUrl(file);
     }
   }
   
   void genCode() {
-    
+    if (iconFinished && imageURL != null) {
+      
+    } else  {
+      window.alert("Can't gen code without an icon");
+    }
   }
   
   void _sendUpload(dynamic data) {
@@ -54,7 +59,7 @@ class ExclusiveOfferDescription extends PolymerElement {
         imageURL = req.responseText;
       }
     });    
-    req.open("POST", "serverloc");
+    req.open("POST", "http://localhost:8081");
     req.send(data);
   }
 }
