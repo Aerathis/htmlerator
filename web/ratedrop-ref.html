@@ -1,0 +1,55 @@
+<html>
+<head>
+</head>
+<body style='font-family: arial'>
+<img src='http://internal.blindferret.com/images/templates/email_template_ratedrop-header.png'>
+<div style='width: 590; position: relative; left: 30'>
+  Hey {firstname},
+  <br>
+  <br>
+  Unfortunately we need to lower the rates for the following campaigns effective {{dropDate}}:
+  <br>
+  <br>
+  <div style='width: 590; border: 1px solid green'>
+    <img src='http://internal.blindferret.com/images/templates/email_template_ratedrop-greenbar.png'>
+    <br>
+    <p>{{campaignTitle}}</p>
+    <hr>
+    <div>
+      {{detailData}}
+    </div>    
+    <div id='calendar' align='center' style='position: relative; left: 400; top: -50; background: url(http://internal.blindferret.com/images/templates/email_template_ratedrop-calendar.png); width: 182; height: 182'>
+      <div id='monthName' style='position: relative; top: 25px; color: white'>{{monthName}}</div>
+      <div id='dayNumber' style='position: relative; top: 60px; font-size: 49'>{{dayNumber}}</div>
+    </div>
+  </div>
+  <br>
+  <br>
+  Please contact your affiliate manager if you have any questions.
+  <br>
+  <br>
+  Thanks, 
+  <br>
+  <br>
+  <b><i>The Blind Ferret Team</i></b>
+  <br>
+  <br>
+  <div style='background-color: lightgrey' align='center'>
+    <br>
+    If you have any questions, please contact your affiliate manager
+    <br>
+    <br>
+    <b>Blind Ferret Media</b>
+    <br>
+    <br>
+    <hr>    
+    <br>
+    <br>
+    If you prefer to not receive these emails, please visit the following link:
+    <br>
+    <br>
+    {unsub_email_url}
+  </div>
+</div>
+</body>
+</html>

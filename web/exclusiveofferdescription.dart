@@ -1,12 +1,6 @@
 import 'package:polymer/polymer.dart';
 import 'dart:html';
-
-class DataPair {
-  String tagName;
-  String tagValue;
-  
-  DataPair(this.tagName, this.tagValue);    
-}
+import 'utilities.dart';
 
 @CustomTag('exclusive-offer-description')
 class ExclusiveOfferDescription extends PolymerElement {
@@ -91,22 +85,11 @@ class ExclusiveOfferDescription extends PolymerElement {
     });    
     req.open("POST", "http://localhost:8081");
     req.send(data);
-  }
-  
-  String _insertIntoPlaceholder(String text, String tag, String value) {
-    int startPoint = text.indexOf(tag);
-    int endPoint = startPoint + tag.length;
-    String start = text.substring(0,startPoint);
-    String resume = text.substring(endPoint);
-    text = start;
-    text += value;
-    text += resume;
-    return text;
-  }
+  }    
   
   String _insertTags(String text, List<DataPair> pairs) {
     for (int i = 0; i < pairs.length; i++) {
-      text = _insertIntoPlaceholder(text, pairs[i].tagName, pairs[i].tagValue);
+      text = insertIntoPlaceholder(text, pairs[i].dataName, pairs[i].dataValue);
     }
     return text;
   }
