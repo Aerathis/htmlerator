@@ -1,0 +1,56 @@
+<polymer-element name='ratedrop-description'>
+  <template>
+    Date:
+    <input type='date' value="{{dropDate}}">
+    ASAP?
+    <input id='drop-asap-check' type='checkbox'>
+    <br>     
+    Campaign Title:
+    <input type='text' value="{{campaignTitle}}">
+    <br>
+    <select id='num-rows-select' value="{{numRows}}" on-change="{{updatedNum}}">
+        <template repeat="{{num in numbers}}">
+          <option value="{{num + 1}}">{{num + 1}}</option>
+        </template>  
+    </select>
+    <br>
+    <ul id='campaign-items'>
+      <template repeat="{{number in numRowsInt}}">
+        Title:
+        <input class='camp-title' type='text' value='{{campaignTitle}}'>
+        <br>
+        Incent:
+        <select class='incent-select'>
+          <option value='Incent'>Incent</option>
+          <option value='Non-incent'>Non-Incent</option>          
+        </select>
+        <br>
+        Platform:
+        <select class='platform-select'>
+          <option value="iOS">iOS</option>
+          <option value='Android'>Android</option>
+          <option value='Web'>Web</option>
+        </select>        
+        <br>
+        Countries:
+        <input class='country-text' type='text'>
+        <br>
+        Payout:
+        <input class='payout-text' type='text'>
+        <select class='payout-select'>
+          <option value='CPI'>CPI</option>
+          <option value='CPA'>CPA</option>
+          <option value='CPC'>CPC</option>
+          <option value='CPM'>CPM</option>
+        </select>
+        <br>
+        <br>
+      </template>
+    </ul>      
+    <button on-click="{{genCode}}">Generate HTML</button>
+    <div>
+      <textarea value="{{resultCode}}"></textarea>
+    </div>
+  </template>
+  <script type='application/dart' src='ratedropdescription.dart'></script>
+</polymer-element>
