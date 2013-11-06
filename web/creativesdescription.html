@@ -1,0 +1,43 @@
+<polymer-element name='creativesdescription'>
+  <template>
+    Campaign Title:
+    <input type='text'>
+    <br>
+    Creatives Link:
+    <input type='text'>
+    <br>
+    <select id='num-rows-select' value="{{numRows}}" on-change="{{updatedNum}}">
+        <template repeat="{{num in numbers}}">
+          <option value="{{num + 1}}">{{num + 1}}</option>
+        </template>  
+    </select>
+    <br>
+    <ul id='campaign-items'>
+      <template repeat="{{num in numRowsInt}}">
+        Title:
+        <input class='name-text' type='text' value="{{campaignName}}">
+        <br>
+        Incent:
+        <select class='incent-select'>
+          <option value='Incent'>Incent</option>
+          <option value='Non-incent'>Non-incent</option>         
+        </select>
+        <br>
+        Platform:
+        <select class='platform-select'>
+          <option value='iOS'>iOS</option>
+          <option value='Android'>Android</option>
+          <option value='Web'>Web</option>          
+        </select>
+        <br>
+        Countries:
+        <input class='countries-text' type='text'>
+        <br>
+        <br>
+      </template>      
+    </ul>
+    <br>
+    <button on-click='{{genCode}}'>Generate HTML</button>
+  </template>
+  <script type='application/dart' src='creativesdescription.dart'></script>
+</polymer-element>
