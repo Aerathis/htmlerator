@@ -1,0 +1,26 @@
+<polymer-element name='new-mobile-campaign'>
+  <template>
+    Number of Campaigns:
+    <select value="{{numRows}}" on-change="{{numCampsUpdate}}">      
+      <template repeat="{{num in numbers}}">
+        <option value="{{num + 1}}">{{num + 1}}</option>
+      </template>
+    </select>
+    <br>    
+    Campaign Title:
+    <input type='text' value="{{campaignTitle}}" on-change="{{titleUpdate}}">
+    <br>
+    Campaign Link:
+    <input type='text'>
+    <br>
+    Preview Link:
+    <input type='text'>
+    <br>
+    <div id='row-data' style='border: 1px solid black'>
+      <template repeat="{{num in numCampsInt}}">      
+        <campaign-row></campaign-row>    
+      </template>
+    </div>           
+  </template>
+  <script type='application/dart' src='newmobilecampaign.dart'></script>
+</polymer-element>

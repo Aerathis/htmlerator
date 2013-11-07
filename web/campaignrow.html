@@ -1,0 +1,34 @@
+<polymer-element name='campaign-row'>
+  <template>
+    Campaign Title:       
+    <input id='title' type='text' value="{{campTitle}}">
+    <br>
+    Incent:
+    <select>
+      <option value="Incent">Incent</option>
+      <option value="Non-incent">Non-incent</option>
+    </select>
+    <br>
+    Platform:
+    <select>
+      <option value="iOS">iOS</option>
+      <option value="Android">Android</option>
+      <option value="Web">Web</option>
+    </select>
+    <br>
+    Countries:
+    <input type='text'>
+    <br>
+    Payout:
+    <input type='text'>
+    <select>
+      <option value="CPI">CPI</option>
+      <option value="CPA">CPA</option>
+      <option value="CPC">CPC</option>
+      <option value="CPM">CPM</option>
+    </select>
+    <br>
+    <br>    
+  </template>
+  <script type='application/dart' src='campaignrow.dart'></script>
+</polymer-element>
