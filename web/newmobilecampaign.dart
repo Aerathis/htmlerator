@@ -67,7 +67,7 @@ class NewMobileCampaign extends PolymerElement {
       default:
         break;
     }
-    resultCode += "<div><b style='position: relative; top: 10;'>$campaignTitle</b><div style='position: relative; top: -8; left: 420;'><a href='$campaignLink'>$campaignButton</a><a href='$previewLink'>$previewButton</a></div></div><hr style='color: lightgrey'>";
+    resultCode += "<div><b style='position: relative; top: 10;'>$campaignTitle</b><div style='position: relative; top: -8; left: 420;'><a href='$campaignLink'>$campaignButton</a><a style='position: relative; left: 5;' href='$previewLink'>$previewButton</a></div></div><hr style='color: lightgrey'>";
     resultCode += "<div style='color: lightgrey; height: 20'>Campaigns<div style='position: relative; top: -18; left: 500;'>Payout</div></div>";
     for (var i = 0; i < rows.length; i++) {
       resultCode += rows[i].genCode();      

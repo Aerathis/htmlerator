@@ -72,29 +72,31 @@ class RateDropDescription extends PolymerElement {
       if (mutations[i].addedNodes.length > 0) {
         RateDropReference holder = new RateDropReference();
         for (var j = 0; j < mutations[i].addedNodes.length; j++) {
-          HtmlElement el = mutations[i].addedNodes[j];
-          switch(el.className){
-            case "camp-title":
-              holder.campaignTitle = el;
-              break;
-            case "incent-select":
-              holder.incent = el;
-              break;
-            case "platform-select":
-              holder.platform = el;
-              break;
-            case "country-text":
-              holder.countries = el;
-              break;
-            case "payout-text":
-              holder.payout = el;
-              break;
-            case "payout-select":
-              holder.scheme = el;
-              break;
-            default:
-              break;
-          }
+          if (mutations[i].addedNodes[j].nodeName == "INPUT" || mutations[i].addedNodes[j].nodeName == "SELECT") {
+            HtmlElement el = mutations[i].addedNodes[j];
+            switch(el.className){
+              case "camp-title":
+                holder.campaignTitle = el;
+                break;
+              case "incent-select":
+                holder.incent = el;
+                break;
+              case "platform-select":
+                holder.platform = el;
+                break;
+              case "country-text":
+                holder.countries = el;
+                break;
+              case "payout-text":
+                holder.payout = el;
+                break;
+              case "payout-select":
+                holder.scheme = el;
+                break;
+              default:
+                break;
+            }  
+          }          
         }
         if (holder.isReady()) {
           references.add(holder);
