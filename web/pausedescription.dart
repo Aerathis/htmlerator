@@ -71,9 +71,11 @@ class PauseDescription extends PolymerElement {
   // The Output Code
   @observable String resultCode = "";
   
-  PauseDescription.created() : super.created() {
+  PauseDescription.created() : super.created() {}
+  
+  void postDisplay() {
     observer = new MutationObserver(_onMutation);        
-    observer.observe($['campaign-items'], childList: true, subtree: true);
+    observer.observe($['campaign-items'], childList: true, subtree: true);  
   }
   
   void updatedNum() {

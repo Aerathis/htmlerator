@@ -1,4 +1,4 @@
-<polymer-element name='creativesdescription'>
+<polymer-element name='creatives-description'>
   <template>
     Campaign Title:
     <input type='text'>
@@ -6,6 +6,7 @@
     Creatives Link:
     <input type='text'>
     <br>
+    Number of rows:
     <select id='num-rows-select' value="{{numRows}}" on-change="{{updatedNum}}">
         <template repeat="{{num in numbers}}">
           <option value="{{num + 1}}">{{num + 1}}</option>

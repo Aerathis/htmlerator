@@ -1,0 +1,57 @@
+<polymer-element name='daily-update-description'>
+  <template>
+    Email Intro:
+    <input type='text' value="{{emailIntro}}">
+    <br>
+    <div id='data-panels'>    
+      New Campaign for mobile?
+      <input id='new-mobile-check' type="checkbox" on-change="{{newMobileCheckClick}}">
+      <br>
+      <div id='new-mobile-campaign-template'>
+        <template if="{{hasNewMobile == true}}">      
+            <new-mobile-campaign class='new-mobile-campaign'></new-mobile-campaign>    
+        </template> 
+      </div>
+      <br>
+      <hr>
+      <br>
+      New Campaign for web?
+      <input id='new-web-check' type='checkbox' on-change="{{newWebCheckClick}}">
+      <br>
+      <div id='new-web-campaign-template'>
+        <template if='{{hasNewWeb == true}}'>
+          <new-mobile-campaign class='new-web-campaign'></new-mobile-campaign>
+        </template>
+      </div>
+      <br>
+      <hr>
+      <br>
+      Rate Increase for mobile?
+      <input id='inc-mobile-check' type='checkbox' on-change="{{incMobileCheckClick}}">
+      <br>
+      <div id='inc-mobile-campaign-template'>
+        <template if='{{hasIncMobile}}'>
+          <new-mobile-campaign class='inc-mobile-campaign'></new-mobile-campaign>
+        </template>
+      </div>
+      <br>
+      <hr>
+      <br>
+      Rate increase for web?
+      <input id='inc-web-check' type='checkbox' on-change='{{incWebCheckClick}}'>
+      <br>
+      <div id='inc-web-campaign-template'>
+        <template if='{{hasIncWeb}}'>
+          <new-mobile-campaign class='inc-web-campaign'></new-mobile-campaign>
+        </template>
+      </div>
+    </div>
+    <div>
+      <button on-click="{{genCode}}">Generate HTML</button>
+    </div>
+    <div>
+      <textarea>{{resultCode}}</textarea>
+    </div>
+  </template>
+  <script type='application/dart' src='dailyupdatedescription.dart'></script>
+</polymer-element>
