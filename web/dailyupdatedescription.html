@@ -1,7 +1,7 @@
 <polymer-element name='daily-update-description'>
   <template>
     Email Intro:
-    <input type='text'>
+    <input type='text' value="{{emailIntro}}">
     <br>
     <div id='data-panels'>    
       New Campaign for mobile?
@@ -48,6 +48,9 @@
     </div>
     <div>
       <button on-click="{{genCode}}">Generate HTML</button>
+    </div>
+    <div>
+      <textarea>{{resultCode}}</textarea>
     </div>
   </template>
   <script type='application/dart' src='dailyupdatedescription.dart'></script>

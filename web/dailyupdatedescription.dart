@@ -24,7 +24,12 @@ class DailyUpdateDescription extends PolymerElement {
   // An observer to catch when new mutations occur to the data panels
   MutationObserver observer;
   
-  DailyUpdateDescription.created() : super.created() {
+  @observable String emailIntro;
+  @observable String resultCode = "";
+  
+  DailyUpdateDescription.created() : super.created() {}
+  
+  void postDisplay() {
     observer = new MutationObserver(_onMutation);
     observer.observe($['data-panels'], childList: true, subtree: true);
     newMobileCheck = $['new-mobile-check'];
@@ -76,20 +81,24 @@ class DailyUpdateDescription extends PolymerElement {
     String incWebCode = "";
     
     if (newMobileElement != null) {
-      newMobileCode = newMobileElement.genCode();
+      newMobileCode = newMobileElement.genCode(0);
     }
     if (newWebElement != null) {
-      newWebCode = newWebElement.genCode();
+      newWebCode = newWebElement.genCode(1);
     }
     if (incMobileElement != null) {
-      incMobileCode = incMobileElement.genCode();      
+      incMobileCode = incMobileElement.genCode(2);      
     }
     if (incWebElement != null) {
-      incWebCode = incWebElement.genCode();
+      incWebCode = incWebElement.genCode(3);
     }
-    
-    String result = newMobileCode + newWebCode + incMobileCode + incWebCode;
+    String result = "<html><head></head><body style='font-family: arial'><img src='http://internal.blindferret.com/images/templates/email_template-header.png'><div style='position: relative; left: 30; width: 590;'>";
+    result += "Hey {firstname},<br><br>$emailIntro<br><br>";
+    result += newMobileCode + newWebCode + incMobileCode + incWebCode;
+    result += "</div><div align='center' style='background: lightgrey; width: 650'><br>If you have any questions, please contact your affiliate manager<br><br><b>Blind Ferret Media</b><br><hr><br>If you prefer to not receive these emails, please visit the following link:<br><br>{unsub_email_url}<br></div>";
+    result += "</body></html>";
     print(result);
+    resultCode = result;
   }
   
   void _onMutation(List<MutationRecord> mutations, MutationObserver observer) {

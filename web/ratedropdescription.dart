@@ -30,7 +30,7 @@ class RateDropDescription extends PolymerElement {
   MutationObserver observer;
   
   // List of references to objects inside the capaign row list
-  List<RateDropReference> references;
+  List<RateDropReference> references = new List<RateDropReference>();
   
   @observable String dropDate;
   @observable String campaignTitle;
@@ -41,9 +41,11 @@ class RateDropDescription extends PolymerElement {
   @observable String numRows;
   @observable List<int> numRowsInt;
   
-  RateDropDescription.created() : super.created() {
+  RateDropDescription.created() : super.created() {}
+  
+  void postDisplay() {
     observer = new MutationObserver(_onMutation);
-    observer.observe($['campaign-items'], childList: true, subtree: true);
+    observer.observe($['campaign-items'], childList: true, subtree: true);    
   }
   
   void updatedNum() {
