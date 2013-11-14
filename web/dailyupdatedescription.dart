@@ -1,6 +1,6 @@
 import 'package:polymer/polymer.dart';
 import 'dart:html';
-import 'newmobilecampaign.dart';
+import 'campaignmanagerdescription.dart';
 
 @CustomTag('daily-update-description')
 class DailyUpdateDescription extends PolymerElement {  
@@ -16,10 +16,10 @@ class DailyUpdateDescription extends PolymerElement {
   InputElement incWebCheck = null;
   
   // Campaign objects that hold the data for the individual sections
-  NewMobileCampaign newMobileElement = null;
-  NewMobileCampaign newWebElement = null;
-  NewMobileCampaign incMobileElement = null;
-  NewMobileCampaign incWebElement = null;
+  CampaignManager newMobileElement = null;
+  CampaignManager newWebElement = null;
+  CampaignManager incMobileElement = null;
+  CampaignManager incWebElement = null;
   
   // An observer to catch when new mutations occur to the data panels
   MutationObserver observer;
@@ -81,6 +81,7 @@ class DailyUpdateDescription extends PolymerElement {
     String incWebCode = "";
     
     if (newMobileElement != null) {
+      print("Not null");
       newMobileCode = newMobileElement.genCode(0);
     }
     if (newWebElement != null) {
@@ -92,7 +93,11 @@ class DailyUpdateDescription extends PolymerElement {
     if (incWebElement != null) {
       incWebCode = incWebElement.genCode(3);
     }
-    emailIntro = emailIntro.replaceAll('\n', "<br>");
+    if (emailIntro != null) {
+      emailIntro = emailIntro.replaceAll('\n', "<br>");
+    } else {
+      emailIntro = "";
+    }
     String result = "<html><head></head><body style='font-family: arial'><img src='http://internal.blindferret.com/images/templates/email_template-header.png'><div style='position: relative; left: 30; width: 590;'>";
     result += "Hey {firstname},<br><br>$emailIntro<br><br>";
     result += newMobileCode + newWebCode + incMobileCode + incWebCode;
@@ -105,8 +110,8 @@ class DailyUpdateDescription extends PolymerElement {
   void _onMutation(List<MutationRecord> mutations, MutationObserver observer) {
     for (var i = 0; i < mutations.length; i++) {
       for (var j = 0; j < mutations[i].addedNodes.length; j++) {
-        if (mutations[i].addedNodes[j].nodeName == "NEW-MOBILE-CAMPAIGN") {
-          NewMobileCampaign el = mutations[i].addedNodes[j];
+        if (mutations[i].addedNodes[j].nodeName == "CAMPAIGN-MANAGER") {
+          CampaignManager el = mutations[i].addedNodes[j];
           print(el.className);
           switch(el.className){
             case "new-mobile-campaign":
