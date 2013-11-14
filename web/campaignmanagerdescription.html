@@ -1,0 +1,17 @@
+<polymer-element name='campaign-manager'>
+  <template>
+    <select value="{{numRows}}" on-change="{{numUpdate}}">
+      <template repeat="{{num in numbers}}">
+        <option value="{{num + 1}}">{{num + 1}}</option>
+      </template>
+    </select>
+    <br>
+    <br>
+    <div id='campaigns'>
+      <template repeat="{{numRowsInt}}">
+        <new-mobile-campaign></new-mobile-campaign>
+      </template>
+    </div>
+  </template>
+  <script type='application/dart' src='campaignmanagerdescription.dart'></script>
+</polymer-element>
