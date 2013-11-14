@@ -92,6 +92,7 @@ class DailyUpdateDescription extends PolymerElement {
     if (incWebElement != null) {
       incWebCode = incWebElement.genCode(3);
     }
+    emailIntro = emailIntro.replaceAll('\n', "<br>");
     String result = "<html><head></head><body style='font-family: arial'><img src='http://internal.blindferret.com/images/templates/email_template-header.png'><div style='position: relative; left: 30; width: 590;'>";
     result += "Hey {firstname},<br><br>$emailIntro<br><br>";
     result += newMobileCode + newWebCode + incMobileCode + incWebCode;
